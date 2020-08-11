@@ -1,0 +1,25 @@
+extends layout.pug
+block content
+  h1 Book 
+  p
+  form(action="/" class='search' method="POST")
+    a.button(href='/books/new' class="search") Create New Book
+    input#search(name='search' type='search' class="search")
+    input(type='submit'  value='Search' class="search")
+  p
+  table
+    thead
+      tr
+        th Title
+        th Author
+        th Genre
+        th Year
+    tbody
+    each book in books
+      tr
+        td
+          a(href='books/' + book.id ) #{book.title}
+        td=book.author
+        td=book.genre
+        td=book.year
+    
